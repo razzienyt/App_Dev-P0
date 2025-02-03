@@ -52,14 +52,14 @@ public class Person implements Comparable<Person>
         this.sex = sex;
     }
 
-    /**
-     * Get the appropriate pronoun for this person object.
-     * 
-     * @return His or Her.
-     */
-    public String getPronoun()
-    {
-        return this.getSex().equals("Male") ? "His" : "Her";
+    public String getPronoun() {
+        if (this.sex.equalsIgnoreCase("Male")) {
+            return "His";
+        } else if (this.sex.equalsIgnoreCase("Female")) {
+            return "Her";
+        } else {
+            return "Their"; 
+        }
     }
 
     public String getOccupation()

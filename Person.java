@@ -112,9 +112,10 @@ public class Person implements Comparable<Person>
         this.countryCode = countryCode;
     }
 
-    /**
-     * @return Full contact number of this person: Country Code + Area Code + Contact Number
-     */
+    public String getPhoneNumber() {
+        return "+" + this.countryCode + " (" + this.areaCode + ") " + this.contactNum;
+    }
+
     public String getPhoneNumber()
     {
         return this.countryCode + "-" + this.areaCode + "-" + this.getContactNum();

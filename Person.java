@@ -137,17 +137,16 @@ public class Person implements Comparable<Person>
      *         <br>
      *         1 if the other person object should go first.
      */
+
     @Override
-    public int compareTo(Person o)
-    {
-        // Complete this method
-        // DO NOT REMOVE THE @Override TAG
-        return 0;
+    public int compareTo(Person o) {
+        int lastNameCompare = this.lname.compareTo(o.lname);
+        if (lastNameCompare != 0) {
+            return lastNameCompare; 
+        }
+        return this.fname.compareTo(o.fname);
     }
 
-    /**
-     * Prints the information of this person.
-     */
     public String toString()
     {
         return String.format("%s is a %s. %s number is %s", this.getFullName(),

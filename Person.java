@@ -116,11 +116,6 @@ public class Person implements Comparable<Person>
         return "+" + this.countryCode + " (" + this.areaCode + ") " + this.contactNum;
     }
 
-    public String getPhoneNumber()
-    {
-        return this.countryCode + "-" + this.areaCode + "-" + this.getContactNum();
-    }
-
     /**
      * Compare the lexicographic order of this person object and another person object. <br>
      * <br>

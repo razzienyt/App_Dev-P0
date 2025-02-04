@@ -139,13 +139,27 @@ public class Person implements Comparable<Person>
      */
 
     @Override
-    public int compareTo(Person o) {
-        int lastNameCompare = this.lname.compareTo(o.lname);
-        if (lastNameCompare != 0) {
-            return lastNameCompare; 
-        }
-        return this.fname.compareTo(o.fname);
+public int compareTo(Person o) {
+    if (o == null) return 1; // Null objects come last
+
+    // Handle null last names safely
+    if (this.lname == null && o.lname == null) return 0;
+    if (this.lname == null) return -1; 
+    if (o.lname == null) return 1;
+
+    int lastNameCompare = this.lname.compareTo(o.lname);
+    if (lastNameCompare != 0) {
+        return lastNameCompare; 
     }
+
+    // Handle null first names safely
+    if (this.fname == null && o.fname == null) return 0;
+    if (this.fname == null) return -1;
+    if (o.fname == null) return 1;
+
+    return this.fname.compareTo(o.fname);
+}
+
 
     public String toString()
     {

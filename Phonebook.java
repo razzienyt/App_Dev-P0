@@ -160,8 +160,22 @@ public class Phonebook
      */
     public String printContactsFromCountryCodes(int... countryCodes)
     {
-        // Complete this method.
-        return "";
+        StringBuilder result = new StringBuilder();
+
+        for (Person p : phonebook)
+        {
+            int personCode = p.getCountryCode();
+
+            for (int code : countryCodes)
+            {
+                if (personCode == code)
+                {
+                    result.append(p.toString()).append("\n");
+                    break;
+                }
+            }
+        }
+        return result.lenght() > 0 ? result.toString()
     }
 
     /**
@@ -171,7 +185,15 @@ public class Phonebook
      */
     public String toString()
     {
-        // Complete this method.
-        return "";
+        if (phonebook.isEmpty())
+        {
+            return "Phonebook is empty";
+        }
+
+        for (Person p : phonebook)
+        {
+            result.append(p).append("\n")
+        }
+        return result.toString();
     }
 }

@@ -164,8 +164,15 @@ public class Main
      */
     private int convertChoices(int choice)
     {
-        // Complete this method.
-        return 0;
+        switch (choice)
+        {
+            case 1: return 1;
+            case 2: return 44;
+            case 3: return 63;
+            case 4: return 91;
+            case 5: return 81;
+            default: return -1;
+        }
     }
 
     /**

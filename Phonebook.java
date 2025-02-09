@@ -78,9 +78,9 @@ public class Phonebook
      */
     private void increasePhonebookMaxSize()
     {
-        Person[] newContacts = new Person[contacts.length * 2];
-        System.arraycopy(contacts, 0, newContacts, 0, contacts.length);
-        contacts = newContacts;
+            // Check if the phonebook is full
+    if (size == contacts.length) {
+        increasePhonebookMaxSize(); // Increase the size of the phonebook
     }
     /**
      * Inserts a new person object at its appropriate lexicographic location in the phonebook.

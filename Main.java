@@ -163,15 +163,29 @@ public class Main
      * @return Country code value of the menu choice.
      */
     private static int convertChoices(int choice) {
-        switch (choice) {
-            case 1:
-                return 1; // Example country code for choice 1
-            case 2:
-                return 44; // Example country code for choice 2
-            case 3:
-                return 63; // Example country code for choice 3
-            default:
-                return 0; // Default or invalid choice
+    switch (choice) {
+        case 1:
+            return 1;   // USA/Canada
+        case 2:
+            return 44;  // United Kingdom
+        case 3:
+            return 63;  // Philippines
+        case 4:
+            return 49;  // Germany
+        case 5:
+            return 33;  // France
+        case 6:
+            return 91;  // India
+        case 7:
+            return 61;  // Australia
+        case 8:
+            return 81;  // Japan
+        default:
+            System.out.println("Invalid choice! Please select a valid option.");
+            return 0;   // Default or invalid choice
+    }
+}
+
         }
     }
 

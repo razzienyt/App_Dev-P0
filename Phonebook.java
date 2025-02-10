@@ -89,7 +89,8 @@ public class Phonebook
      */
     public void insert(Person p)
     {
-        // Complete this method
+        int index = findIndexInsertion(p);
+        phonebook.add(index, p);
     }
 
     /**
@@ -100,9 +101,28 @@ public class Phonebook
      */
     private int findIndexInsertion(Person p)
     {
-        // Complete this method
-        return 0;
+        int left = 0, right = phonebook.size() -1;
+        String newName = p.getName();
+
+        while (left <= right)
+
+        {
+            int mid = left + (right - left) / 2;
+            String midName = phonebook.get(mid).getName();
+
+            if (midName.compareTo((newName) < 0)
+            {
+            left = mid + 1;
+            }
+            else
+            {
+            right = mid - 1;
+            }
+        }
+        return left;
+
     }
+
 
     /**
      * Delete a person based on their contact id.
@@ -156,8 +176,22 @@ public class Phonebook
      */
     public String printContactsFromCountryCodes(int... countryCodes)
     {
-        // Complete this method.
-        return "";
+        StringBuilder result = new StringBuilder();
+
+        for (Person p : phonebook)
+        {
+           int personCode = p.getCountryCode();
+
+           for (int code : countryCodes)
+            {
+                if (personCode == code)
+                {
+                    result.append(p.toString()).append("\n");
+                    break;
+                }
+            }
+        }
+        return result.length() > 0 ? result.toString()
     }
 
     /**

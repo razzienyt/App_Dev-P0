@@ -132,8 +132,11 @@ public class Phonebook
      */
     public Person deleteContact(String id)
     {
-        // Complete this method...
-        return null;
+        if (id == null || !contacts.containsKey(id))
+        {
+            return null;
+        }
+        return contacts.remove(id);
     }
 
     /**

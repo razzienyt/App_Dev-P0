@@ -141,7 +141,11 @@ public class Person implements Comparable<Person>
     {
         // Complete this method
         // DO NOT REMOVE THE @Override TAG
-        return 0;
+        int lastNameComparison = this.lname.compareTo(o.lname);
+        if (lastNameComparison != 0) {
+            return lastNameComparison;
+        }
+        return this.fname.compareTo(o.fname);
     }
 
     /**

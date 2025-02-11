@@ -204,7 +204,17 @@ public class Phonebook
      */
     public String toString()
     {
-        // Complete this method.
-        return "";
+        if (contacts.isEmpty())
+        {
+            return "Phonebook is empty.";
+        }
+
+        StringBuilder sb = new StringBuilder("Phonebook Contacts: \n");
+        for (Person person : contacts)
+        {
+            sb.append(person.toString()).append("\n")
+        }
+        return sb.toString();
     }
+
 }

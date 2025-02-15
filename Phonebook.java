@@ -132,11 +132,22 @@ public class Phonebook
      */
     public Person deleteContact(String id)
     {
-        if (id == null || !contacts.containsKey(id))
-        {
+        if (id == null) {
             return null;
         }
-        return contacts.remove(id);
+
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null && contacts[i].getId().equals(id)) {
+                Person deletedContact = contacts[i];
+
+                // Shift elements to the left to fill the gap
+                adjustPhonebook(i, size, "f");
+
+                size--; // Reduce size
+                return deletedContact; // Clear the last entry
+            }
+        }
+        return null; // Contact not found
     }
 
     /**
@@ -204,17 +215,16 @@ public class Phonebook
      */
     public String toString()
     {
-        if (contacts.isEmpty())
-        {
+        if (size == 0) {
             return "Phonebook is empty.";
         }
 
-        StringBuilder sb = new StringBuilder("Phonebook Contacts: \n");
-        for (Person person : contacts)
-        {
-            sb.append(person.toString()).append("\n")
+         StringBuilder sb = new StringBuilder("Phonebook Contacts:\n");
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null) { // Check if the contact is not null
+                sb.append(contacts[i].toString()).append("\n");
+            }
         }
         return sb.toString();
     }
-
 }

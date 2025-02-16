@@ -15,7 +15,7 @@ public class Main {
                     "Area Code", "Phone Number", "None - Go back to Main Menu" },
             {
                     // Menu for View Phonebook
-                    "View Contact through ID", "View Contacts through Country Code",
+                    "View All", "View Contact through ID", "View Contacts through Country Code",
                     "Go back to Main Menu" }, };
     private static final Scanner input = new Scanner(System.in);
 
@@ -28,7 +28,8 @@ public class Main {
             // System.out.print("Select an option: ");
             // int opt = input.nextInt();
             int opt = Integer.parseInt(prompt("Select an option: "));
-            switch case 1:
+            switch (opt) {
+                case 1:
                     while (true) {
                         pb.insert(createNewPerson()); // Insert new contact
 
@@ -100,6 +101,7 @@ public class Main {
                         System.out.println("Error: No contact found with student number " + studentNumber);
                     }
                     break;
+
                 case 3:
                     String id = prompt("Enter contact ID to delete: ");
                     Person p = pb.getContact(id);
@@ -145,7 +147,7 @@ public class Main {
                                 }
                                 if (countryCode == 12) { // If "ALL" is selected
                                     System.out.println(pb.printContactsFromCountryCodes(12));
-                                    break; // 
+                                    break;
                                 } else {
                                     int actualCountryCode = convertChoice(countryCode); // Convert menu choice to actual
                                                                                         // country code
@@ -285,7 +287,7 @@ public class Main {
         fname = prompt("Enter First Name: ");
         lname = prompt("Enter Last Name: ");
         occupation = prompt("Enter Occupation: ");
-        sex = prompt("Enter sex/gender: ");
+        sex = prompt("Enter gender (M for male, F for female): ");
         countryCode = Integer.parseInt(prompt("Enter Country Code: "));
         areaCode = Integer.parseInt(prompt("Enter Area Code: "));
         contactNum = prompt("Enter Contact Number: ");

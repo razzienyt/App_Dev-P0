@@ -15,7 +15,7 @@ public class Main {
                     "Area Code", "Phone Number", "None - Go back to Main Menu" },
             {
                     // Menu for View Phonebook
-                    "View All", "View Contact through ID", "View Contacts through Country Code",
+                    "View Contact through ID", "View Contacts through Country Code",
                     "Go back to Main Menu" }, };
     private static final Scanner input = new Scanner(System.in);
 
@@ -28,8 +28,7 @@ public class Main {
             // System.out.print("Select an option: ");
             // int opt = input.nextInt();
             int opt = Integer.parseInt(prompt("Select an option: "));
-            switch (opt) {
-                case 1:
+            switch case 1:
                     while (true) {
                         pb.insert(createNewPerson()); // Insert new contact
 
@@ -146,11 +145,10 @@ public class Main {
                                 }
                                 if (countryCode == 12) { // If "ALL" is selected
                                     System.out.println(pb.printContactsFromCountryCodes(12));
-                                    break;
+                                    break; // 
                                 } else {
-                                    int actualCountryCode = convertChoices(countryCode); // Convert menu choice to
-                                                                                         // actual
-                                                                                         // country code
+                                    int actualCountryCode = convertChoice(countryCode); // Convert menu choice to actual
+                                                                                        // country code
                                     boolean exists = false;
 
                                     for (int a : countryCodes) {
@@ -204,8 +202,8 @@ public class Main {
                     System.out.println("Exiting program...");
                     System.exit(0); // Terminate the program
                     break;
-            }
 
+            }
         }
     }
 
@@ -246,27 +244,32 @@ public class Main {
      * 
      * @return Country code value of the menu choice.
      */
-    private static int convertChoices(int choice) {
+    private static int convertChoice(int choice) {
         switch (choice) {
             case 1:
-                return 1; // USA/Canada
+                return 95; // Republic of the Union of Myanmar (Burma)
             case 2:
-                return 44; // United Kingdom
+                return 855; // Kingdom of Cambodia
             case 3:
-                return 63; // Philippines
+                return 66; // Kingdom of Thailand
             case 4:
-                return 49; // Germany
+                return 84; // Socialist Republic of Vietnam
             case 5:
-                return 33; // France
+                return 60; // Federation of Malaysia
             case 6:
-                return 91; // India
+                return 63; // Republic of the Philippines
             case 7:
-                return 61; // Australia
+                return 62; // Republic of Indonesia
             case 8:
-                return 81; // Japan
+                return 670; // Democratic Republic of Timor Leste
+            case 9:
+                return 856; // Lao People's Democratic Republic
+            case 10:
+                return 673; // Brunei Darussalam
+            case 11:
+                return 65; // Republic of Singapore
             default:
-                System.out.println("Invalid choice! Please select a valid option.");
-                return 0; // Default or invalid choice
+                return 0; // Invalid or exit
         }
     }
 

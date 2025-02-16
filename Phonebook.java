@@ -1,5 +1,6 @@
-public class Phonebook
-{
+import java.util.Scanner;
+
+public class Phonebook {
     // Storage of contacts.
     private Person[] contacts;
     // Number of contacts present in the phonebook.
@@ -8,16 +9,14 @@ public class Phonebook
     /**
      * Create a phonebook of size 50.
      */
-    public Phonebook()
-    {
+    public Phonebook() {
         contacts = new Person[50];
     }
 
     /**
      * @return Number of contacts stored in this phonebook.
      */
-    public int getSize()
-    {
+    public int getSize() {
         // Complete this method
         return size;
     }
@@ -28,56 +27,29 @@ public class Phonebook
      * @param index Index to get contact.
      * @return Person object from index. Null if index is not valid or out of range.
      */
-    public Person getContactAtIndex(int index)
-    {
+    public Person getContactAtIndex(int index) {
+        // Complete this method
         if (index >= 0 && index < size) {
             return contacts[index];
         }
         return null;
     }
 
-    public Person getContact(String id)
-    {
+    /**
+     * Get the person object based on a given id.
+     * 
+     * @param id Target id.
+     * @return Person object that has this id. Null if it does not exist.
+     */
+
+    public Person getContact(String id) {
         for (int i = 0; i < size; i++) {
-            if (contacts[i].getId().equals(id)) {
+            if (contacts[i] != null && contacts[i].getId().equals(id)) {
                 return contacts[i];
             }
         }
         return null;
     }
-
-
-    /**
-     * Checks if this phonebook has contacts or not.
-     * 
-     * @return True or False.
-     */
-    public boolean isEmpty()
-    {
-        return this.getSize() == 0;
-    }
-
-    /**
-     * Increase number of contacts present in this phonebook.
-     */
-    public void incrSize()
-    {
-        this.size++;
-    }
-
-    /**
-     * Decrease number of contacts present in this phonebook.
-     */
-    public void decrSize()
-    {
-        this.size--;
-    }
-
-    /**
-     * Increases the size of the phonebook whenever it is full.
-     */
-    private void increasePhonebookMaxSize()
-    {
             // Check if the phonebook is full
     if (size == contacts.length) {
         increasePhonebookMaxSize(); // Increase the size of the phonebook
